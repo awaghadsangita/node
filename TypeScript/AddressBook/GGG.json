@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "firstname": " ",
+        "lastname": " ",
+        "address": {
+            "address": " ",
+            "city": " ",
+            "state": " ",
+            "zip": 456321
+        },
+        "phone": 9874563210
+    },
+    {
+        "id": 2,
+        "firstname": "abc",
+        "lastname": "abc",
+        "address": {
+            "address": "abc",
+            "city": "abc",
+            "state": "bac",
+            "zip": 456321
+        },
+        "phone": 7896541230
+    },
+    {
+        "id": 3,
+        "firstname": "ccc",
+        "lastname": "ccc",
+        "address": {
+            "address": "ccc",
+            "city": "ccc",
+            "state": "ccc",
+            "zip": 789654
+        },
+        "phone": 7895641230
+    },
+    {
+        "id": 4,
+        "firstname": "hhh",
+        "lastname": "hhh",
+        "address": {
+            "address": "hhh",
+            "city": "hhh",
+            "state": "hhh",
+            "zip": 456987
+        },
+        "phone": 7896541230
+    }
+]

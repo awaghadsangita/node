@@ -1,0 +1,20 @@
+[
+    {
+        "stockId": 1,
+        "stockName": "TCS",
+        "noOfShares": 50,
+        "sharesPrice": 1000
+    },
+    {
+        "stockId": 2,
+        "stockName": "Amdoc",
+        "noOfShares": 10,
+        "sharesPrice": 200
+    },
+    {
+        "stockId": 3,
+        "stockName": "Bridgelabz",
+        "noOfShares": 50,
+        "sharesPrice": 1500
+    }
+]

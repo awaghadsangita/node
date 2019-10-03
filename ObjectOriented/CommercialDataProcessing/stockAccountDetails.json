@@ -1,0 +1,57 @@
+[
+    {},
+    {
+        "operationId": 1,
+        "personId": 1,
+        "symbol": "T",
+        "noOfShares": 5,
+        "operation": "BUY",
+        "dateTime": "06-09-2019 15:09"
+    },
+    {
+        "operationId": 2,
+        "personId": 1,
+        "symbol": "T",
+        "noOfShares": 5,
+        "operation": "BUY",
+        "dateTime": "06-09-2019 15:09"
+    },
+    {
+        "operationId": 3,
+        "personId": 1,
+        "symbol": "A",
+        "noOfShares": 2,
+        "operation": "BUY",
+        "dateTime": "06-09-2019 15:09"
+    },
+    {
+        "operationId": 4,
+        "personId": 1,
+        "symbol": "T",
+        "operation": "SELL",
+        "dateTime": "06-09-2019 15:09"
+    },
+    {
+        "operationId": 5,
+        "personId": 1,
+        "symbol": "A",
+        "operation": "BUY",
+        "dateTime": "06-09-2019 15:09"
+    },
+    {
+        "operationId": 6,
+        "personId": 1,
+        "symbol": "A",
+        "noOfShares": 5,
+        "operation": "BUY",
+        "dateTime": "06-09-2019 16:09"
+    },
+    {
+        "operationId": 7,
+        "personId": 1,
+        "symbol": "A",
+        "noOfShares": 1,
+        "operation": "SELL",
+        "dateTime": "06-09-2019 16:09"
+    }
+]

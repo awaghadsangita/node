@@ -1,0 +1,34 @@
+[{
+    "doctorid":1,
+    "doctorname":"sangita",
+    "specialization":"surgeon MBBS ",
+    "availability":"AM"
+},{
+    "doctorid":2,
+    "doctorname":"bhoomi",
+    "specialization":"gynecology MBBS ",
+    "availability":"PM"
+},
+{
+    "doctorid":3,
+    "doctorname":"vaishu",
+    "specialization":"pediatrician MBBS ",
+    "availability":"BOTH"
+},
+{
+    "doctorid":4,
+    "doctorname":"Kavita",
+    "specialization":"surgeon MBBS MD",
+    "availability":"PM"
+},{
+    "doctorid":5,
+    "doctorname":"Neha",
+    "specialization":"gynecology MBBS MD ",
+    "availability":"BOTH"
+},
+{
+    "doctorid":6,
+    "doctorname":"sheetal",
+    "specialization":"pediatrician MBBS MD",
+    "availability":"AM"
+}]

@@ -1,0 +1,46 @@
+#regBody{
+    background-color: grey;
+    align-items: center
+}
+#regForm{
+    background-color: beige;
+    align-content: center;
+    padding:20px
+}
+#registartionpageDiv{
+    height: 700px;
+    width: 400px;
+    text-align: center;
+    
+    display: inline-block;
+    margin-left: 400;
+    margin-top: 50;
+}
+.regLbl{
+    text-align: center;
+    color:black;
+    padding: 20px;
+}
+.regHeading{
+    text-align: center;font-size: 32px;padding-left: 35px;
+}
+#loginForm{
+    background-color: beige;
+    align-content: center;
+    padding:40px
+}
+.p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    text-align: center;
+}
+.a{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-style: initial;
+    text-align: center;
+    padding: 100px;
+}
+.resetHeading{
+    text-align: center;font-size: 28px;padding-left: 20px;
+}

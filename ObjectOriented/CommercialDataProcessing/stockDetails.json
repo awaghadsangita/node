@@ -1,0 +1,23 @@
+[
+    {
+        "stockId": 1,
+        "stockName": "TCS",
+        "stockSymbol": "T",
+        "noOfShares": 40,
+        "sharesPrice": 200
+    },
+    {
+        "stockId": 2,
+        "stockName": "Amdocs",
+        "stockSymbol": "A",
+        "noOfShares": 24,
+        "sharesPrice": 600
+    },
+    {
+        "stockId": 3,
+        "stockName": "Brigelabz",
+        "stockSymbol": "B",
+        "noOfShares": 20,
+        "sharesPrice": 500
+    }
+]

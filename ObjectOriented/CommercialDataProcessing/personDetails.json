@@ -1,0 +1,35 @@
+[
+    {
+        "personId": 1,
+        "personName": "sangita awaghad",
+        "balance": 42000,
+        "shares": [
+            {
+                "stockId": 1,
+                "stockName": "TCS",
+                "stockSymbol": "T",
+                "noOfShares": 10,
+                "sharesPrice": 200
+            },
+            {
+                "stockId": 2,
+                "stockName": "Amdocs",
+                "stockSymbol": "A",
+                "noOfShares": 8,
+                "sharesPrice": 600
+            }
+        ]
+    },
+    {
+        "personId": 2,
+        "personName": "vaishu sawant",
+        "balance": 50000,
+        "shares": []
+    },
+    {
+        "personId": 3,
+        "personName": "priya gund",
+        "balance": 100000,
+        "shares": []
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "firstname": "abc",
+        "lastname": "abc",
+        "address": {
+            "address": "abc",
+            "city": "abc",
+            "state": "abc",
+            "zip": 789654
+        },
+        "phone": 7896541230
+    },
+    {
+        "id": 2,
+        "firstname": "kkk",
+        "lastname": "kkk",
+        "address": {
+            "address": "kkk",
+            "city": "kkk",
+            "state": "kkk",
+            "zip": 456321
+        },
+        "phone": 7894561203
+    }
+]

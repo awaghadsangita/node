@@ -1,0 +1,5 @@
+[{"personId":1,"firstName":"nita","lastName":"sharma","address":{"address":"aadd ggg","city":"aurangabad","state":"gujrat","zip":"531203"},"phone":"9211907937"},
+    {"personId":2,"firstName":"ashish","lastName":"awaghad","address":{"address":"aadd ggg","city":"pune","state":"gujrat","zip":"202431"},"phone":"9411908009"},
+    {"personId":3,"firstName":"nita","lastName":"giri","address":{"address":"aadd ggg","city":"washi","state":"gujrat","zip":"671203"},"phone":"8011909879"},
+    {"personId":4,"firstName":"vaishu","lastName":"sawant","address":{"address":"aadd ggg","city":"dhule","state":"gujrat","zip":"431203"},"phone":"8011909878"},
+    {"personId":5,"firstName":"priya","lastName":"gund","address":{"address":"aadd ggg","city":"rampure","state":"gujrat","zip":"731203"},"phone":"7011909878"}]

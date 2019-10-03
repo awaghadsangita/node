@@ -1,0 +1,20 @@
+[
+    {
+        "patientid": 1,
+        "patientname": "sangita awaghad",
+        "age": 25,
+        "mobilenumber": 9422329006
+    },
+    {
+        "patientid": 2,
+        "patientname": "Kavita Giri",
+        "age": 22,
+        "mobilenumber": 987456123
+    },
+    {
+        "patientid": 3,
+        "patientname": "Nikita giri",
+        "age": 35,
+        "mobilenumber": 9011907937
+    }
+]

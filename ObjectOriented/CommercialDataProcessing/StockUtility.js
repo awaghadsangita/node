@@ -186,6 +186,7 @@ class StockAccount {
             let personArrayIndex = -1;
             let stockArrayIndex = -1;
             //find array index of personArray based on person id
+            
             for (let i = 0; i < this.personArray.length; i++) {
                 if (this.personArray[i].personId == personId) {
                     personArrayIndex = i;

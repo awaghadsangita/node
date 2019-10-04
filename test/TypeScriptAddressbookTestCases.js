@@ -52,14 +52,12 @@ describe("test cases ​to create new addressbook ",function(){
 
 describe("test cases for ​to add new person in addressbook ",function(){
     let obj=new utility.ImplementationClass();
-
     
     it("firstname should not be null",function(){
         let tc1=obj.addPerson(null,"abc", "abc", "jalna", "MH", "432167", "9422329006") 
         assert.equal(tc1.message.toString(),"firstname should not be undefine or null");
     });
-    
-    
+   
     it("firstname should not be undefined ",function(){
         let tc2=obj.addPerson(undefined,"abc", "abc", "jalna", "MH", "432167", "9422329006") 
         assert.equal(tc2.message.toString(),"firstname should not be undefine or null");
@@ -228,7 +226,7 @@ describe("test cases for ​to update address in addressbook ",function(){
     
        
     it("array index should be positive number",function(){
-        let tc14=obj.addPerson(-1,"abc11", "jalna", "MH", "432165") 
+        let tc14=obj.updateAddress(-144,"abc11", "jalna", "MH", "432165") 
         assert.equal(tc14.message.toString(),"array index must be positive number");
     });
 
@@ -239,11 +237,10 @@ describe("test cases for ​to update address in addressbook ",function(){
     
     
     it("address should not be undefined ",function(){
-        let tc10=obj.updateAddress(1,a, undefined, "jalna", "MH", "432167") 
+        let tc10=obj.updateAddress(1, undefined, "jalna", "MH", "432167") 
         assert.equal(tc10.message.toString(),"address should not be undefined or null");
     });
-    
-       
+           
     it("address should contains at atleast two characters ",function(){
         let tc11=obj.updateAddress(1,"a", "jalna", "MH", "432167") 
         assert.equal(tc11.message.toString(),"address must be atleast 2 character long");
@@ -262,7 +259,7 @@ describe("test cases for ​to update address in addressbook ",function(){
     
        
     it("city should contains at atleast two characters ",function(){
-        let tc14=obj.updateAddress(1,"abac", "abacb", "a", "MH", "432167") 
+        let tc14=obj.updateAddress(1,"abac", "a", "MH", "432167") 
         assert.equal(tc14.message.toString(),"city must contains letters only and must be atleast 2 character long");
     });
     it("state should not be null",function(){
@@ -303,6 +300,74 @@ describe("test cases for ​to update address in addressbook ",function(){
         let tc14=obj.updateAddress(1, "abacb", "jalna", "MH", "43299916", "9422329006") 
         assert.equal(tc14.message.toString(),"zip must be 6 digit long");
     });
+})
+
+describe("test cases for ​update phone number in addressbook ",function(){
+    let obj=new utility.ImplementationClass();
+    it("Array index should not be null",function(){
+        let tc12=obj.updatePhone(null,"9422329006") 
+         assert.equal(tc12.message.toString(),"array index should not be undefined or null");
+    });
     
+    
+    it("array index should not be undefined ",function(){
+        let tc13=obj.updatePhone(undefined,"9422329006") 
+        assert.equal(tc13.message.toString(),"array index should not be undefined or null");
+    });
+    
+       
+    it("array index should be positive number",function(){
+        let tc14=obj.updatePhone(-144,"9422329006") 
+        assert.equal(tc14.message.toString(),"array index must be positive number");
+    });
+    
+    it("mobile number should not be null",function(){
+        let tc12=obj.updatePhone(122, null) 
+         assert.equal(tc12.message.toString(),"mobile number should not be undefined or null");
+    });
+    
+    
+    it("mobile number should not be undefined ",function(){
+        let tc13=obj.updatePhone(122, undefined) 
+        assert.equal(tc13.message.toString(),"mobile number should not be undefined or null");
+    });
+    
+       
+    it("mobile number should start with 7,8 or 9",function(){
+        let tc14=obj.updatePhone(122, "6422329006") 
+        assert.equal(tc14.message.toString(),"phone number must start with 7,8 or 9 and must be 10 digit long");
+    });
+
+    it("mobile number must contains 10 digit ",function(){
+        let tc14=obj.updatePhone(122, "942232900655") 
+        assert.equal(tc14.message.toString(),"phone number must start with 7,8 or 9 and must be 10 digit long");
+    });
+})
+
+describe("test cases for ​deleting person from addressbook ",function(){
+    let obj=new utility.ImplementationClass();
+    it("registration id should not be null",function(){
+        let tc12=obj.deletePerson(null) 
+         assert.equal(tc12.message.toString(),"Registration id should not be undefined or null");
+    });
+    
+    
+    it("registration id should not be undefined",function(){
+        let tc13=obj.deletePerson(undefined) 
+        assert.equal(tc13.message.toString(),"Registration id should not be undefined or null");
+    });
+    
+       
+    it("registration id must be positive number",function(){
+        let tc14=obj.deletePerson(-144) 
+        assert.equal(tc14.message.toString(),"Registration id must be positive number");
+    });
+    
+    it("registration id does not exist",function(){
+        obj.isExistAddressbook("MH")
+        let tc14=obj.deletePerson(25) 
+        assert.equal(tc14.message.toString(),"Registration Id does not Exist");
+    });
     
 })
+

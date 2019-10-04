@@ -1,3 +1,11 @@
+/*********************************************************************************************************
+ * @purpose	:contain all methods required for cliniq management
+ * 
+ * @author	:sangita awaghad
+ * @version	:1.0
+ * @since	:04-10-2019
+ * 
+ **********************************************************************************************************/
 import * as fs from 'fs';
 import * as moment from 'moment';
 

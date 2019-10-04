@@ -1,1 +1,98 @@
-[{"id":1,"firstname":"sangita","lastname":"awaghad","address":{"address":"Madhuban colony","city":"jalna","state":"maharashtra","zip":431203},"phone":"1234567890"},{"id":3,"firstname":"kavita","lastname":"giri","address":{"address":"akurdi","city":"pune","state":"maharashtra","zip":543210},"phone":"9012345678"},{"id":6,"firstname":"kaveri","lastname":"gite","address":{"address":"akurdi","city":"pune","state":"maharashtra","zip":432029},"phone":"1234567890"},{"id":7,"firstname":"kishori","lastname":"bhojane","address":{"address":"railway station raod","city":"jalna","state":"maharashtra","zip":431209},"phone":"908765432"},{"id":8,"firstname":"vaibhav","lastname":"magar","address":{"address":"ravet","city":"pune","state":"maharashtra","zip":432109},"phone":"908765432"},{"id":9,"firstname":"vishal","lastname":"sawant","address":{"address":"aaa","city":"aaa","state":"aaa","zip":431209},"phone":9874563210},{"id":10,"firstname":"abc","lastname":"abc","address":{"address":"abc","city":"abc","state":"abc","zip":456321},"phone":9874561230},{"id":11,"firstname":"abc111","lastname":"sss","address":{"address":"sss","city":"sss","state":"sss","zip":456321},"phone":7896541230}]
+[
+    {
+        "id": 1,
+        "firstname": "sangita",
+        "lastname": "awaghad",
+        "address": {
+            "address": "Madhuban colony",
+            "city": "jalna",
+            "state": "maharashtra",
+            "zip": 431203
+        },
+        "phone": "1234567890"
+    },
+    {
+        "id": 3,
+        "firstname": "kavita",
+        "lastname": "giri",
+        "address": {
+            "address": "akurdi",
+            "city": "pune",
+            "state": "maharashtra",
+            "zip": 543210
+        },
+        "phone": "9012345678"
+    },
+    {
+        "id": 6,
+        "firstname": "kaveri",
+        "lastname": "gite",
+        "address": {
+            "address": "akurdi",
+            "city": "pune",
+            "state": "maharashtra",
+            "zip": 432029
+        },
+        "phone": "1234567890"
+    },
+    {
+        "id": 7,
+        "firstname": "kishori",
+        "lastname": "bhojane",
+        "address": {
+            "address": "railway station raod",
+            "city": "jalna",
+            "state": "maharashtra",
+            "zip": 431209
+        },
+        "phone": "908765432"
+    },
+    {
+        "id": 8,
+        "firstname": "vaibhav",
+        "lastname": "magar",
+        "address": {
+            "address": "ravet",
+            "city": "pune",
+            "state": "maharashtra",
+            "zip": 432109
+        },
+        "phone": "908765432"
+    },
+    {
+        "id": 9,
+        "firstname": "vishal",
+        "lastname": "sawant",
+        "address": {
+            "address": "aaa",
+            "city": "aaa",
+            "state": "aaa",
+            "zip": 431209
+        },
+        "phone": 9874563210
+    },
+    {
+        "id": 10,
+        "firstname": "abc",
+        "lastname": "abc",
+        "address": {
+            "address": "abc",
+            "city": "abc",
+            "state": "abc",
+            "zip": 456321
+        },
+        "phone": 9874561230
+    },
+    {
+        "id": 11,
+        "firstname": "abc111",
+        "lastname": "sss",
+        "address": {
+            "address": "sss",
+            "city": "sss",
+            "state": "sss",
+            "zip": 456321
+        },
+        "phone": 7896541230
+    }
+]

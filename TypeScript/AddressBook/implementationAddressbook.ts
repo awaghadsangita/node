@@ -4,7 +4,7 @@ import * as path from 'path';
 
 class ImplementationClass {
     private addressbookName: string;
-    private personArray: [{"id":any,"firstname":any,"lastname":any, address:{"address":any,"city":any,"state":any,"zip":any},"phone": any}];
+    private personArray: [{ "id": any, "firstname": any, "lastname": any, address: { "address": any, "city": any, "state": any, "zip": any }, "phone": any }];
 
     get getAddressbookName(): string {
         return this.addressbookName;
@@ -15,18 +15,17 @@ class ImplementationClass {
     }
     constructor() {
         this.addressbookName = "";
-        this.personArray = [{"id":0,"firstname":"abc","lastname":"abc", address:{"address":"abc","city":"jalna","state":"maharshtra","zip":431203},"phone":9422329006}];
+        this.personArray = [{ "id": 0, "firstname": "abc", "lastname": "abc", address: { "address": "abc", "city": "jalna", "state": "maharshtra", "zip": 431203 }, "phone": 9422329006 }];
     }
-    isExistAddressbook(filename: string):any {
+    isExistAddressbook(filename: string): any {
         try {
-            
-            if(filename==undefined||filename==null)
-            {
+
+            if (filename == undefined || filename == null) {
                 throw new Error('filename should not be undefined or null');
             }
-            
-            let filenameRegx = new RegExp('/^[a-zA-Z]{2,}$/');
-            if (filenameRegx.test(filename)) {
+
+            let filenameRegx: RegExp = /^[a-zA-Z]{2,}$/;
+            if (!filenameRegx.test(filename)) {
                 throw new Error('filename must be atleast 2 character long and must contains letters only');
             }
             let dir: string = "./";
@@ -37,7 +36,7 @@ class ImplementationClass {
                     isFound = true;
                     let fileName = path.parse(files[i]).name + ".json";
                     let jsonString = fs.readFileSync(files[i]);
-                    this.addressbookName=fileName; 
+                    this.addressbookName = fileName;
                     this.personArray = JSON.parse(jsonString.toString());
 
                 }
@@ -47,28 +46,27 @@ class ImplementationClass {
             return e;
         }
     }
-    showAddressBookName():string[]{
-        try{
+    showAddressBookName(): string[] {
+        try {
             let dir: string = "./";
             let files: string[] = fs.readdirSync(dir);
             return files;
-        }catch(e)
-        {
+        } catch (e) {
             return e;
         }
     }
-    createAddressBook(abName: string):any {
+    createAddressBook(abName: string): any {
         try {
             let isFound: any = this.isExistAddressbook(abName);
             if (isFound instanceof Error) {
                 throw isFound;
             }
             if (isFound === false) {
-                let fileN=abName.toUpperCase()+".json";
-                console.log("file name"+fileN);
+                let fileN = abName.toUpperCase() + ".json";
+                console.log("file name" + fileN);
                 //let strings={"id":0,"firstname":"lkjh","lastname":"ffff","address":{"address":"ffff","city":"ffff","state":"ffff","zip":123456},"phone":9874561230};
-                let strings=[JSON.stringify({"id":0,"firstname":" ", "lastname":" ","address": {}})]
-                fs.writeFileSync(fileN,"["+strings+"]");
+                let strings = [JSON.stringify({ "id": 0, "firstname": " ", "lastname": " ", "address": {} })]
+                fs.writeFileSync(fileN, "[" + strings + "]");
                 return "success";
             }
             return "failed";
@@ -76,71 +74,64 @@ class ImplementationClass {
             return e;
         }
     }
-    
+
     addPerson(fname: string, lname: string, address: string, city: string, state: string, zip: string, ph: string) {
         try {
-            if(fname==undefined||fname==null)
-            {
+            if (fname == undefined || fname == null) {
                 throw new Error('firstname should not be undefine or null');
             }
             // let nameregx = new RegExp('/^[a-zA-Z]{2,}$/');
-            let nameregx:RegExp=/^[a-zA-Z]{2,}$/;
+            let nameregx: RegExp = /^[a-zA-Z]{2,}$/;
             console.log("nameregx.test(fname)---", nameregx.test(fname));
-            
+
             if (!nameregx.test(fname)) {
                 console.log("i am inside");
                 throw new Error('firstname must contains letters only and must be atleast 2 character long');
             }
-            if(lname==undefined||lname==null)
-            {
+            if (lname == undefined || lname == null) {
                 throw new Error('lastname should not be undefine or null');
             }
-            let lnameregx :RegExp=/^[a-zA-Z]{2,}$/;
+            let lnameregx: RegExp = /^[a-zA-Z]{2,}$/;
             if (!lnameregx.test(lname)) {
                 throw new Error('lastname must contains letters only and must be atleast 2 character long');
             }
-            if(address==undefined||address==null)
-            {
+            if (address == undefined || address == null) {
                 throw new Error('address should not be undefined or null');
             }
-            let addressregx:RegExp=/^[a-zA-Z0-9-_, ]{2,}$/;
+            let addressregx: RegExp = /^[a-zA-Z0-9-_, ]{2,}$/;
             if (!addressregx.test(address)) {
                 throw new Error('address must be atleast 2 character long');
             }
-            if(city==undefined||city==null)
-            {
+            if (city == undefined || city == null) {
                 throw new Error('city should not be undefined or null');
             }
             if (!nameregx.test(city)) {
                 throw new Error('city must contains letters only and must be atleast 2 character long');
             }
-            if(state==undefined||state==null)
-            {
+            if (state == undefined || state == null) {
                 throw new Error('state should not be undefined or null');
             }
             if (!nameregx.test(state)) {
                 throw new Error('state must contains letters only and must be atleast 2 character long');
             }
-            if(zip==undefined||zip==null)
-            {
+            if (zip == undefined || zip == null) {
                 throw new Error('zip should not be undefined or null');
             }
-            let zipregex:RegExp=/^[0-9]{6}$/;
+            let zipregex: RegExp = /^[0-9]{6}$/;
             if (!zipregex.test(zip)) {
                 throw new Error('zip must be 6 digit long');
             }
-            if(ph==undefined||ph==null)
-            {
+            if (ph == undefined || ph == null) {
                 throw new Error('mobile number should not be undefined or null');
             }
-            let phoneregex:RegExp=/^[7-9]{1}[0-9]{9}$/;
+            let phoneregex: RegExp = /^[7-9]{1}[0-9]{9}$/;
             if (!phoneregex.test(ph)) {
                 throw new Error('phone number must start with 7,8 or 9 and must be 10 digit long');
             }
             let personObj = new Person();
             let sortedArray = Array.from(this.personArray);
 
-            personObj.setId = this.personArray[sortedArray.length-1]['id'] + 1;
+            personObj.setId = this.personArray[sortedArray.length - 1]['id'] + 1;
             personObj.setFirstName = fname;
             personObj.setLastName = lname;
             let personArray = { "address": address, "city": city, "state": state, "zip": Number(zip) };
@@ -148,15 +139,13 @@ class ImplementationClass {
             personObj.setPhone = Number(ph);
 
             let personJsonObject = { "id": personObj.getId, "firstname": personObj.getFirstName, "lastname": personObj.getLastName, "address": personObj.getAddress, "phone": personObj.getPhone };
-            
-            if(this.personArray[0]['id']==0)
-            {
-                this.personArray[0]=personJsonObject;
-            }else
-            {
+
+            if (this.personArray[0]['id'] == 0) {
+                this.personArray[0] = personJsonObject;
+            } else {
                 this.personArray.push(personJsonObject);
             }
-            
+
             this.writeToJsonArray();
             return personObj.getId;
         } catch (e) {
@@ -165,8 +154,7 @@ class ImplementationClass {
     }
     findPerson(id: number): number {
         try {
-            if(id==undefined||id==null)
-            {
+            if (id == undefined || id == null) {
                 throw new Error('person registration id should not be undefined or null');
             }
             let idRegx = new RegExp('/^$[0-9]{1,}$/');
@@ -186,42 +174,37 @@ class ImplementationClass {
     }
     updateAddress(arrayindex: number, address: string, city: string, state: string, zip: string): any {
         try {
-            if(arrayindex==undefined||arrayindex==null)
-            {
+            if (arrayindex == undefined || arrayindex == null) {
                 throw new Error('array index should not be undefined or null');
             }
-            let idRegx:RegExp=/^$[0-9]{1,}$/;
-            if (!idRegx.test(arrayindex.toString())) {
+
+            if (arrayindex < 0) {
                 throw new Error('array index must be positive number');
             }
-            if(address==undefined||address==null)
-            {
+            if (address == undefined || address == null) {
                 throw new Error('address should not be undefined or null');
             }
-            let addressregx: RegExp=/^[a-zA-Z0-9-_, ]{2,}$/;
+            let addressregx: RegExp = /^[a-zA-Z0-9-_, ]{2,}$/;
             if (!addressregx.test(address)) {
                 throw new Error('address must be atleast 2 character long');
             }
-            if(city==undefined||city==null)
-            {
+            if (city == undefined || city == null) {
                 throw new Error('city should not be undefined or null');
             }
-            let nameregx: RegExp=/^[a-zA-Z]{2,}$/;
+            let nameregx: RegExp = /^[a-zA-Z]{2,}$/;
             if (!nameregx.test(city)) {
                 throw new Error('city must contains letters only and must be atleast 2 character long');
             }
-            if(state==undefined||state==null)
-            {
+            if (state == undefined || state == null) {
                 throw new Error('state should not be undefined or null');
             }
             if (!nameregx.test(state)) {
                 throw new Error('state must contains letters only and must be atleast 2 character long');
             }
-            if(zip==undefined||zip==null)
-            {
+            if (zip == undefined || zip == null) {
                 throw new Error('zip should not be undefined or null');
             }
-            let zipregex:RegExp=/^[0-9]{6}$/;
+            let zipregex: RegExp = /^[0-9]{6}$/;
             if (!zipregex.test(zip)) {
                 throw new Error('zip must be 6 digit long');
             }
@@ -235,11 +218,17 @@ class ImplementationClass {
     }
     updatePhone(arrayindex: number, ph: string): any {
         try {
-            let idRegx = new RegExp('/^$[0-9]{1,}$/');
-            if (!idRegx.test(arrayindex.toString())) {
+            if (arrayindex == undefined || arrayindex == null) {
+                throw new Error('array index should not be undefined or null');
+            }
+
+            if (arrayindex < 0) {
                 throw new Error('array index must be positive number');
             }
-            let phoneregex = new RegExp('/^[7-9]{1}[0-9]{9}$/');
+            if (ph == undefined || ph == null) {
+                throw new Error('mobile number should not be undefined or null');
+            }
+            let phoneregex: RegExp = /^[7-9]{1}[0-9]{9}$/;
             if (!phoneregex.test(ph)) {
                 throw new Error('phone number must start with 7,8 or 9 and must be 10 digit long');
             }
@@ -252,8 +241,11 @@ class ImplementationClass {
     }
     deletePerson(id: number) {
         try {
-            let idRegx = new RegExp('/^$[0-9]{1,}$/');
-            if (!idRegx.test(id.toString())) {
+            if (id == undefined || id == null) {
+                throw new Error('Registration id should not be undefined or null');
+            }
+
+            if (id < 0) {
                 throw new Error('Registration id must be positive number');
             }
             let isFound: boolean = false;
@@ -273,40 +265,51 @@ class ImplementationClass {
     }
 
     sortByLastName() {
-        let sortedArray = Array.from(this.personArray);
-        for (let i = 1; i < sortedArray.length; i++) {
-            for (let j = 1; j < sortedArray.length - 1; j++) {
-                if (sortedArray[j]['lastname'].localeCompare(sortedArray[j + 1]['lastname']) > 0) {
-                    let temp = sortedArray[j];
-                    sortedArray[j] = sortedArray[j + 1];
-                    sortedArray[j + 1] = temp;
+        try {
+            let sortedArray = Array.from(this.personArray);
+            for (let i = 1; i < sortedArray.length; i++) {
+                for (let j = 1; j < sortedArray.length - 1; j++) {
+                    if (sortedArray[j]['lastname'].localeCompare(sortedArray[j + 1]['lastname']) > 0) {
+                        let temp = sortedArray[j];
+                        sortedArray[j] = sortedArray[j + 1];
+                        sortedArray[j + 1] = temp;
+                    }
+
                 }
-
             }
+            for (let i = 0; i < sortedArray.length; i++) {
+                console.log(sortedArray[i]['id'] + "\t" + sortedArray[i]['firstname'] + " " + sortedArray[i]["lastname"] + "\t" + sortedArray[i]["phone"]);
+            }
+        } catch (e) {
+            return e;
         }
-        for (let i = 0; i < sortedArray.length; i++) {
-            console.log(sortedArray[i]['id'] + "\t" + sortedArray[i]['firstname'] + " " + sortedArray[i]["lastname"] + "\t" + sortedArray[i]["phone"]);
-        }
-
     }
     sortByZip() {
-        let sortedArray = Array.from(this.personArray);
-        for (let i = 1; i < sortedArray.length; i++) {
-            for (let j = 1; j < sortedArray.length - 1; j++) {
-                if (sortedArray[j]['address']['zip'] > sortedArray[j + 1]['address']['zip']) {
-                    let temp = sortedArray[j];
-                    sortedArray[j] = sortedArray[j + 1];
-                    sortedArray[j + 1] = temp;
+        try {
+            let sortedArray = Array.from(this.personArray);
+            for (let i = 1; i < sortedArray.length; i++) {
+                for (let j = 1; j < sortedArray.length - 1; j++) {
+                    if (sortedArray[j]['address']['zip'] > sortedArray[j + 1]['address']['zip']) {
+                        let temp = sortedArray[j];
+                        sortedArray[j] = sortedArray[j + 1];
+                        sortedArray[j + 1] = temp;
+                    }
                 }
             }
-        }
-        for (let i = 1; i < sortedArray.length; i++) {
-            console.log(sortedArray[i]['address']['zip'] + "\t" + sortedArray[i]['id'] + "\t" + sortedArray[i]['firstname'] + " " + sortedArray[i]["lastname"] + "\t" + sortedArray[i]["phone"]);
+            for (let i = 1; i < sortedArray.length; i++) {
+                console.log(sortedArray[i]['address']['zip'] + "\t" + sortedArray[i]['id'] + "\t" + sortedArray[i]['firstname'] + " " + sortedArray[i]["lastname"] + "\t" + sortedArray[i]["phone"]);
+            }
+        } catch (e) {
+            return e;
         }
     }
     writeToJsonArray() {
-        let jsonString = JSON.stringify(this.personArray);
-        fs.writeFileSync(this.addressbookName, jsonString);
+        try {
+            let jsonString = JSON.stringify(this.personArray);
+            fs.writeFileSync(this.addressbookName, jsonString);
+        } catch (e) {
+            return e;
+        }
     }
 
 }

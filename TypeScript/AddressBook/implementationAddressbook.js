@@ -27,8 +27,8 @@ var ImplementationClass = /** @class */ (function () {
             if (filename == undefined || filename == null) {
                 throw new Error('filename should not be undefined or null');
             }
-            var filenameRegx = new RegExp('/^[a-zA-Z]{2,}$/');
-            if (filenameRegx.test(filename)) {
+            var filenameRegx = /^[a-zA-Z]{2,}$/;
+            if (!filenameRegx.test(filename)) {
                 throw new Error('filename must be atleast 2 character long and must contains letters only');
             }
             var dir = "./";
@@ -179,8 +179,7 @@ var ImplementationClass = /** @class */ (function () {
             if (arrayindex == undefined || arrayindex == null) {
                 throw new Error('array index should not be undefined or null');
             }
-            var idRegx = /^$[0-9]{1,}$/;
-            if (!idRegx.test(arrayindex.toString())) {
+            if (arrayindex < 0) {
                 throw new Error('array index must be positive number');
             }
             if (address == undefined || address == null) {
@@ -207,7 +206,7 @@ var ImplementationClass = /** @class */ (function () {
                 throw new Error('zip should not be undefined or null');
             }
             var zipregex = /^[0-9]{6}$/;
-            if (zipregex.test(zip)) {
+            if (!zipregex.test(zip)) {
                 throw new Error('zip must be 6 digit long');
             }
             var adddressObj = { "address": address, "city": city, "state": state, "zip": Number(zip) };
@@ -221,11 +220,16 @@ var ImplementationClass = /** @class */ (function () {
     };
     ImplementationClass.prototype.updatePhone = function (arrayindex, ph) {
         try {
-            var idRegx = new RegExp('/^$[0-9]{1,}$/');
-            if (!idRegx.test(arrayindex.toString())) {
+            if (arrayindex == undefined || arrayindex == null) {
+                throw new Error('array index should not be undefined or null');
+            }
+            if (arrayindex < 0) {
                 throw new Error('array index must be positive number');
             }
-            var phoneregex = new RegExp('/^[7-9]{1}[0-9]{9}$/');
+            if (ph == undefined || ph == null) {
+                throw new Error('mobile number should not be undefined or null');
+            }
+            var phoneregex = /^[7-9]{1}[0-9]{9}$/;
             if (!phoneregex.test(ph)) {
                 throw new Error('phone number must start with 7,8 or 9 and must be 10 digit long');
             }
@@ -239,8 +243,10 @@ var ImplementationClass = /** @class */ (function () {
     };
     ImplementationClass.prototype.deletePerson = function (id) {
         try {
-            var idRegx = new RegExp('/^$[0-9]{1,}$/');
-            if (!idRegx.test(id.toString())) {
+            if (id == undefined || id == null) {
+                throw new Error('Registration id should not be undefined or null');
+            }
+            if (id < 0) {
                 throw new Error('Registration id must be positive number');
             }
             var isFound = false;

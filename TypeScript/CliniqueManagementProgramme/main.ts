@@ -39,43 +39,76 @@ class Mainclass {
                             console.log('Enter doctor Id');
                             let doctorid = utility.getNumber();
                             let arrayindex = obj.getDoctorById(doctorid);//get doctor id from user
+                            if(arrayindex instanceof Error)
+                            {
+                                throw arrayindex.message;
+                            }
                             if (arrayindex[0] != -1) {//if doctor found shows information
-                                obj.showDoctorDetails(arrayindex);
+                                let tc=obj.showDoctorDetails(arrayindex);
+                                if(tc instanceof Error)
+                                {
+                                    throw tc.message;
+                                }
                             }
                             let appointmentDate = obj.findAppointmentDate(arrayindex);//get date when doctor available
-                            console.log('doctor is available on ', appointmentDate);
-                            console.log('are you want appointment (y/n) ');//asked user whether user want appointment
-                            let reply = utility.getString();
-                            if (reply.toUpperCase() == 'Y') {
-
-                            } else {
-                                console.log('Thank you');
+                            if(appointmentDate instanceof Error)
+                            {
+                                throw appointmentDate.message;
                             }
+                            console.log('doctor is available on ', appointmentDate);
+                            // console.log('are you want appointment (y/n) ');//asked user whether user want appointment
+                            // let reply = utility.getString();
+                            // if (reply.toUpperCase() == 'N') {
+                            //     console.log('Thank you');
+                            // } 
+                            // else {
+                            
+                            // }
                         } break;
                         case 2: {
                             console.log('Enter doctor name');
                             let doctorname: string = utility.getString();//get doctor name from user
                             let arrayindex = obj.getDoctorByName(doctorname);//find array index if doctor is found
+                            if(arrayindex instanceof Error)
+                            {
+                                throw arrayindex.message;
+                            }
                             if (arrayindex[0] != -1) {
-                                obj.showDoctorDetails(arrayindex);//show doctor details
+                                let tc=obj.showDoctorDetails(arrayindex);//show doctor details
+                                if(tc instanceof Error)
+                                {
+                                    throw tc.message;
+                                }
                             }
                             let appointmentDate = obj.findAppointmentDate(arrayindex);//find when doctor is available
-                            console.log('doctor is available on ', appointmentDate);
-                            console.log('are you want appointment (y/n) ');
-                            let reply = utility.getString();
-                            if (reply.toUpperCase() == 'Y') {
-
-                            } else {
-                                console.log('Thank you');
+                            if(appointmentDate instanceof Error)
+                            {
+                                throw appointmentDate.message;
                             }
+                            console.log('doctor is available on ', appointmentDate);
+                            // console.log('are you want appointment (y/n) ');
+                            // let reply = utility.getString();
+                            // if (reply.toUpperCase() == 'Y') {
+
+                            // } else {
+                            //     console.log('Thank you');
+                            // }
 
                         } break;
                         case 3: {
                             console.log('Enter doctor Specialization');
                             let specialization: string = utility.getString();//get specialzation from user
                             let arrayindex = obj.getDoctorBySpecializtion(specialization);//find array index if doctor is found
+                            if(arrayindex instanceof Error)
+                            {
+                                throw arrayindex.message;
+                            }
                             if (arrayindex[0] != -1) {
-                                obj.showDoctorDetails(arrayindex);//shows doctor information
+                                let tc=obj.showDoctorDetails(arrayindex);//shows doctor information
+                                if(tc instanceof Error)
+                                {
+                                    throw tc.message;
+                                }
                             }
                             console.log('are you want appointment (y/n) ');
                             let reply = utility.getString();
@@ -83,7 +116,15 @@ class Mainclass {
                                 console.log('Enter doctor Id');//id from user
                                 let doctorid = utility.getNumber();
                                 let arrayindex = obj.getDoctorById(doctorid);//find array index
+                                if(arrayindex instanceof Error)
+                                {
+                                    throw arrayindex.message;
+                                }
                                 let appointmentDate = obj.findAppointmentDate(arrayindex);//find when doctor is avialable
+                                if(appointmentDate instanceof Error)
+                                {
+                                    throw appointmentDate.message;
+                                }
                                 console.log('doctor is available on ', appointmentDate);
                             } else {
                                 console.log('Thank you');
@@ -101,8 +142,16 @@ class Mainclass {
                                 default: console.log('Invalid Shift')
                             }
                             let arrayindex = obj.getDoctorByAvailability(avial);//find all doctors working in given shift
+                            if(arrayindex instanceof Error)
+                            {
+                                throw arrayindex.message;
+                            }
                             if (arrayindex[0] != -1) {
-                                obj.showDoctorDetails(arrayindex);
+                                let tc=obj.showDoctorDetails(arrayindex);
+                                if(tc instanceof Error)
+                                {
+                                    throw tc.message;
+                                }
                             }
                             console.log('are you want appointment (y/n) ');
                             let reply = utility.getString();
@@ -110,7 +159,15 @@ class Mainclass {
                                 console.log('Enter doctor Id');//get doctor id
                                 let doctorid = utility.getNumber();
                                 let arrayindex = obj.getDoctorById(doctorid);//find array index
+                                if(arrayindex instanceof Error)
+                                {
+                                    throw arrayindex.message;
+                                }
                                 let appointmentDate = obj.findAppointmentDate(arrayindex);//find availability
+                                if(appointmentDate instanceof Error)
+                                {
+                                    throw appointmentDate.message;
+                                }
                                 console.log('doctor is available on ', appointmentDate);
                             } else {
                                 console.log('Thank you');
@@ -134,24 +191,48 @@ class Mainclass {
                             console.log('Enter the Patient id');
                             let id = utility.getNumber();//get patient id
                             let index = obj.getPatientById(id);//find array index
+                            if(index instanceof Error)
+                            {
+                                throw index.message;
+                            }
                             if (index[0] != -1) {
-                                obj.showPatientDetails(index);//shows patient information if patient found in array list
+                                let tc=obj.showPatientDetails(index);//shows patient information if patient found in array list
+                                if(tc instanceof Error)
+                                {
+                                    throw tc.message;
+                                }
                             }
                         } break;
                         case 2: {
                             console.log('Enter the Patient Name :');
                             let name = utility.getString();//get patient name from user
                             let index = obj.getPatientByName(name);//find array index
+                            if(index instanceof Error)
+                            {
+                                throw index.message;
+                            }
                             if (index[0] != -1) {
-                                obj.showPatientDetails(index);//shows patient information if patient found in array list
+                                let tc=obj.showPatientDetails(index);//shows patient information if patient found in array list
+                                if(tc instanceof Error)
+                                {
+                                    throw tc.message;
+                                }
                             }
                         } break;
                         case 3: {
                             console.log('Enter the Patient Mobile Number :');
                             let ph = utility.getNumber();//get patient mobile number from user
                             let index = obj.getPatientByMobileNumber(ph);//find array index from mobile number
+                            if(index instanceof Error)
+                            {
+                                throw index.message;
+                            }
                             if (index[0] != -1) {
-                                obj.showPatientDetails(index);//shows patient information if patient found in array list
+                                let tc=obj.showPatientDetails(index);//shows patient information if patient found in array list
+                                if(tc instanceof Error)
+                                {
+                                    throw tc.message;
+                                }
                             }
                         } break;
                         default: console.log('Invalid inner choice');
@@ -161,10 +242,22 @@ class Mainclass {
                     console.log('Enter doctor name');//get doctor name from user
                     let doctorname: string = utility.getString();
                     let arrayindex = obj.getDoctorByName(doctorname);//find array index from doctorname
+                    if(arrayindex instanceof Error)
+                    {
+                        throw arrayindex.message;
+                    }
                     if (arrayindex[0] != -1) {
-                        obj.showDoctorDetails(arrayindex);//show doctor details
+                        let tc=obj.showDoctorDetails(arrayindex);//show doctor details
+                        if(tc instanceof Error)
+                        {
+                            throw tc.message;
+                        }
                     }
                     let appointmentDate = obj.findAppointmentDate(arrayindex);//find when doctor is available
+                    if(appointmentDate instanceof Error)
+                    {
+                        throw appointmentDate.message;
+                    }
                     console.log('doctor is available on ', appointmentDate);
                     console.log('are you sure to schedule appointment(y/n) :');
                     let appointmentReply=utility.getString();
@@ -179,16 +272,29 @@ class Mainclass {
                             let age=utility.getNumber();
                             console.log('Enter the Mobile Number :');
                             let ph=utility.getNumber();
-                            obj.addPatient(name,age,ph);//add it to patient array
+                            let tc=obj.addPatient(name,age,ph);//add it to patient array
+                            if(tc instanceof Error)
+                            {
+                                throw tc.message;
+                            }
                         } else {
                         console.log('Enter patient Id')
                         let pid = utility.getNumber();//if not new patient then asked id
-                        obj.scheduleAppointment(arrayindex[0],appointmentDate,pid);//scheduleAppointment
+                        let tc0=obj.scheduleAppointment(arrayindex[0],appointmentDate,pid);//scheduleAppointment
+                        if(tc0 instanceof Error)
+                        {
+                            throw tc0.message;
+                        }
+                        console.log('You appointment is schedule on ',appointmentDate);
                     }
                 }
                 } break;
                 case 4:{
-                    obj.findPopularDoctor();//find popular doctor
+                    let tc=obj.findPopularDoctor();//find popular doctor
+                    if(tc instanceof Error)
+                    {
+                        throw tc.message;
+                    }
                     break;
                 }
                 default: console.log('Invalid choice');

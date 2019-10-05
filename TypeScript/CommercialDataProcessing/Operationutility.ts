@@ -7,7 +7,7 @@
  * 
  **********************************************************************************************************/
 
-import { IOperation } from "./IOpreration";
+import {IOperation}  from "./IOpreration";
 import * as fs from 'fs';
 import * as moment from 'moment';
 class OperationUtility implements IOperation {
@@ -22,7 +22,6 @@ class OperationUtility implements IOperation {
      */
     readStockJsonArray() {
         try {
-
             let jsonString = fs.readFileSync(this.stockjsonFilename);
             this.stockArray = JSON.parse(jsonString.toString());
         } catch (e) {
@@ -59,34 +58,28 @@ class OperationUtility implements IOperation {
      */
     buy(symbol: string, noOfShares: number, personId: number): any {
         try {
-            if (symbol == null) {
-                throw new Error('stock symbol should not be null');
-            }
-            if (symbol === undefined) {
-                throw new Error('stock symbol should not be undefined');
+            if (symbol == null||symbol==undefined) {
+                throw new Error('stock symbol should not be null or undefined');
             }
             let regex: RegExp = /^[a-zA-Z0-9]{1,}$/;
             if (!regex.test(symbol)) {
                 throw new Error('stock symbol should not contained special symbol');
             }
+            if (noOfShares == null||noOfShares==undefined) {
+                throw new Error('number of shares should not be null or undefined');
+            }
+            
             if (typeof noOfShares != 'number') {
                 throw new Error('number shares should be number');
             }
-            if (noOfShares == null) {
-                throw new Error('number of shares should not be null');
-            }
-            if (noOfShares === undefined) {
-                throw new Error('number of shares should not be undefined');
+            
+            if (personId == null||personId===undefined) {
+                throw new Error('person id should not be null or undefined');
             }
             if (typeof personId != 'number') {
                 throw new Error('person id should be number');
             }
-            if (personId == null) {
-                throw new Error('person id should not be null');
-            }
-            if (personId === undefined) {
-                throw new Error('person id should not be undefined');
-            }
+            
             let personArrayIndex = -1;
             let stockArrayIndex = -1;
             /**gives array index from person id of personArray*/
@@ -172,34 +165,28 @@ class OperationUtility implements IOperation {
      */
     sell(symbol: string, noOfShares: number, personId: number): any {
         try {
-            if (symbol == null) {
-                throw new Error('stock symbol should not be null');
-            }
-            if (symbol === undefined) {
-                throw new Error('stock symbol should not be undefined');
+            if (symbol == null||symbol==undefined) {
+                throw new Error('stock symbol should not be null or undefined');
             }
             let regex: RegExp = /^[a-zA-Z0-9]{1,}$/;
             if (!regex.test(symbol)) {
                 throw new Error('stock symbol should not contained special symbol');
             }
+            if (noOfShares == null||noOfShares==undefined) {
+                throw new Error('number of shares should not be null or undefined');
+            }
+            
             if (typeof noOfShares != 'number') {
                 throw new Error('number shares should be number');
             }
-            if (noOfShares == null) {
-                throw new Error('number of shares should not be null');
-            }
-            if (noOfShares === undefined) {
-                throw new Error('number of shares should not be undefined');
+            
+            if (personId == null||personId===undefined) {
+                throw new Error('person id should not be null or undefined');
             }
             if (typeof personId != 'number') {
                 throw new Error('person id should be number');
             }
-            if (personId == null) {
-                throw new Error('person id should not be null');
-            }
-            if (personId === undefined) {
-                throw new Error('person id should not be undefined');
-            }
+            
             let personArrayIndex = -1;
             let stockArrayIndex = -1;
             /**gives array index of personArray from person id */
@@ -317,6 +304,14 @@ class OperationUtility implements IOperation {
      */
     saveFile(filename: string, jsonarray: any[]): any {
         try {
+            if(filename==null||filename==undefined)
+            {
+                throw new Error('filename should not be null or undefined');
+            }
+            if(jsonarray==null || jsonarray==undefined)
+            {
+                throw new Error('json array should not be null or undefined');
+            }
             let jsonString = JSON.stringify(jsonarray);
             fs.writeFileSync(filename, jsonString);
             this.readPersonJsonArray();

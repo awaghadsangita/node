@@ -1,11 +1,20 @@
+/*********************************************************************************************************
+ * @purpose	:contains all methods required to perform various operation on addressbook
+ * 
+ * @author	:sangita awaghad
+ * @version	:1.0
+ * @since	:04-10-2019
+ * 
+ **********************************************************************************************************/
+import {IAddressbook} from './IAddressbook';
 import { Person } from './person';
 import * as fs from 'fs';
 import * as path from 'path';
 
-class ImplementationClass {
+class ImplementationClass implements IAddressbook{
     private addressbookName: string;
     private personArray: [{ "id": any, "firstname": any, "lastname": any, address: { "address": any, "city": any, "state": any, "zip": any }, "phone": any }];
-
+    
     get getAddressbookName(): string {
         return this.addressbookName;
     }
@@ -17,20 +26,26 @@ class ImplementationClass {
         this.addressbookName = "";
         this.personArray = [{ "id": 0, "firstname": "abc", "lastname": "abc", address: { "address": "abc", "city": "jalna", "state": "maharshtra", "zip": 431203 }, "phone": 9422329006 }];
     }
+    /**
+     * @description:find whether given filename is exist or not
+     * @param filename :filename to search
+     */
     isExistAddressbook(filename: string): any {
         try {
 
             if (filename == undefined || filename == null) {
                 throw new Error('filename should not be undefined or null');
             }
-
+            /**regex for file name */
             let filenameRegx: RegExp = /^[a-zA-Z]{2,}$/;
             if (!filenameRegx.test(filename)) {
                 throw new Error('filename must be atleast 2 character long and must contains letters only');
             }
             let dir: string = "./";
+            /**contails all files in given directory */
             let files: string[] = fs.readdirSync(dir);
             let isFound: boolean = false;
+            /**iterate files array for checking given file name is present in list or not */
             for (let i = 0; i < files.length; i++) {
                 if (path.parse(files[i]).name.toUpperCase() == filename.toUpperCase()) {
                     isFound = true;
@@ -46,21 +61,31 @@ class ImplementationClass {
             return e;
         }
     }
+    /**
+     * @description:shows list of addressbook present in current directory
+     */
     showAddressBookName(): string[] {
         try {
             let dir: string = "./";
+            /**read the directory */
             let files: string[] = fs.readdirSync(dir);
             return files;
         } catch (e) {
             return e;
         }
     }
+    /**
+     * @description:create address book if not exist
+     * @param abName :addressbook name
+     */
     createAddressBook(abName: string): any {
         try {
+            /**check whether addressbook exist */
             let isFound: any = this.isExistAddressbook(abName);
             if (isFound instanceof Error) {
                 throw isFound;
             }
+            /**if address book not present in directory then create it */
             if (isFound === false) {
                 let fileN = abName.toUpperCase() + ".json";
                 console.log("file name" + fileN);
@@ -74,19 +99,25 @@ class ImplementationClass {
             return e;
         }
     }
-
-    addPerson(fname: string, lname: string, address: string, city: string, state: string, zip: string, ph: string) {
+    /**
+     * @description:add new person in address book
+     * @param fname :firstname of person
+     * @param lname :lastname of person
+     * @param address :address of person
+     * @param city :city in which person live
+     * @param state :state in which city present
+     * @param zip :zip code of city
+     * @param ph :mobile number of person
+     */
+    addPerson(fname: string, lname: string, address: string, city: string, state: string, zip: string, ph: string):any {
         try {
             if (fname == undefined || fname == null) {
                 throw new Error('firstname should not be undefine or null');
             }
             // let nameregx = new RegExp('/^[a-zA-Z]{2,}$/');
             let nameregx: RegExp = /^[a-zA-Z]{2,}$/;
-            console.log("nameregx.test(fname)---", nameregx.test(fname));
-
             if (!nameregx.test(fname)) {
-                console.log("i am inside");
-                throw new Error('firstname must contains letters only and must be atleast 2 character long');
+                  throw new Error('firstname must contains letters only and must be atleast 2 character long');
             }
             if (lname == undefined || lname == null) {
                 throw new Error('lastname should not be undefine or null');
@@ -128,30 +159,36 @@ class ImplementationClass {
             if (!phoneregex.test(ph)) {
                 throw new Error('phone number must start with 7,8 or 9 and must be 10 digit long');
             }
+            /**store information in person class object */
             let personObj = new Person();
             let sortedArray = Array.from(this.personArray);
 
             personObj.setId = this.personArray[sortedArray.length - 1]['id'] + 1;
             personObj.setFirstName = fname;
             personObj.setLastName = lname;
+            /**create a address json object from data */
             let personArray = { "address": address, "city": city, "state": state, "zip": Number(zip) };
             personObj.setAddress = personArray;
             personObj.setPhone = Number(ph);
-
+            /**create store all details in person json object */
             let personJsonObject = { "id": personObj.getId, "firstname": personObj.getFirstName, "lastname": personObj.getLastName, "address": personObj.getAddress, "phone": personObj.getPhone };
-
+            /**create new file then file contain one json object with id zero */
             if (this.personArray[0]['id'] == 0) {
                 this.personArray[0] = personJsonObject;
-            } else {
+            } else {//otherwise push person json object into personArray
                 this.personArray.push(personJsonObject);
             }
-
+            /**call method to write data into json file */
             this.writeToJsonArray();
             return personObj.getId;
         } catch (e) {
             return e;
         }
     }
+    /**
+     * @description:find person from person id in addressbook
+     * @param id :id of person
+     */
     findPerson(id: number): number {
         try {
             if (id == undefined || id == null) {
@@ -162,6 +199,7 @@ class ImplementationClass {
                 throw new Error('Registration id must be positive number');
             }
             let isFound: number = -1;
+            /**iterate personArray to search for given id */
             for (let i = 0; i < this.personArray.length; i++) {
                 if (this.personArray[i]['id'] == id) {
                     isFound = i;
@@ -172,6 +210,14 @@ class ImplementationClass {
             return e;
         }
     }
+    /**
+     * @description:update address of person
+     * @param arrayindex :index get from findPerson method
+     * @param address :address of person
+     * @param city :city of person
+     * @param state :state of city
+     * @param zip :zip code of city
+     */
     updateAddress(arrayindex: number, address: string, city: string, state: string, zip: string): any {
         try {
             if (arrayindex == undefined || arrayindex == null) {
@@ -208,14 +254,22 @@ class ImplementationClass {
             if (!zipregex.test(zip)) {
                 throw new Error('zip must be 6 digit long');
             }
+            /**create json object from information */
             let adddressObj = { "address": address, "city": city, "state": state, "zip": Number(zip) };
+            /**update address of person */
             this.personArray[arrayindex].address = adddressObj;
+            /**write to json file */
             this.writeToJsonArray();
             return 1;
         } catch (e) {
             return e;
         }
     }
+    /**
+     * @description:update the phone number of person
+     * @param arrayindex :get index from findPerson method
+     * @param ph :mobile number of person
+     */
     updatePhone(arrayindex: number, ph: string): any {
         try {
             if (arrayindex == undefined || arrayindex == null) {
@@ -232,6 +286,7 @@ class ImplementationClass {
             if (!phoneregex.test(ph)) {
                 throw new Error('phone number must start with 7,8 or 9 and must be 10 digit long');
             }
+            /**update mobile number of person */
             this.personArray[arrayindex]['phone'] = Number(ph);
             this.writeToJsonArray();
             return 1;
@@ -239,7 +294,11 @@ class ImplementationClass {
             return e;
         }
     }
-    deletePerson(id: number) {
+    /**
+     * @description:delete person from address book
+     * @param id :id of person
+     */
+    deletePerson(id: number):any {
         try {
             if (id == undefined || id == null) {
                 throw new Error('Registration id should not be undefined or null');
@@ -249,6 +308,7 @@ class ImplementationClass {
                 throw new Error('Registration id must be positive number');
             }
             let isFound: boolean = false;
+            /**iterate person array to search given id if found delete it else throw error object */
             for (let i = 0; i < this.personArray.length; i++) {
                 if (this.personArray[i]['id'] == id) {
                     isFound = true;
@@ -263,8 +323,10 @@ class ImplementationClass {
             return e;
         }
     }
-
-    sortByLastName() {
+    /**
+     * @description:sort person array by last name for sorting used bubble sort
+     */
+    sortByLastName():any {
         try {
             let sortedArray = Array.from(this.personArray);
             for (let i = 1; i < sortedArray.length; i++) {
@@ -284,7 +346,10 @@ class ImplementationClass {
             return e;
         }
     }
-    sortByZip() {
+    /**
+     * @description:sort person array by zip and for sorting used bubble sort
+     */
+    sortByZip():any {
         try {
             let sortedArray = Array.from(this.personArray);
             for (let i = 1; i < sortedArray.length; i++) {
@@ -303,7 +368,10 @@ class ImplementationClass {
             return e;
         }
     }
-    writeToJsonArray() {
+    /**
+     * @description:write person json object array into file
+     */
+    writeToJsonArray():any {
         try {
             let jsonString = JSON.stringify(this.personArray);
             fs.writeFileSync(this.addressbookName, jsonString);

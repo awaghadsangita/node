@@ -1,4 +1,11 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /*********************************************************************************************************
  * @purpose	:maintain the Stock Symbol purchased or sold in a Stack implemented using linked list to indicate transactions done.
@@ -8,11 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @since	:04-10-2019
  *
  **********************************************************************************************************/
-var fs = require("fs");
-var moment = require("moment");
+var fs = __importStar(require("fs"));
+var moment = __importStar(require("moment"));
 var operationNode_1 = require("./operationNode");
 var linkedlist_1 = require("./linkedlist");
-var utility = require("../Utility/utility");
+var utility = __importStar(require("../Utility/utility"));
 var OperationStack = /** @class */ (function () {
     function OperationStack() {
         this.stockArray = new Array();
@@ -91,12 +98,14 @@ var OperationStack = /** @class */ (function () {
             }
             var personArrayIndex = -1;
             var stockArrayIndex = -1;
+            /**get arrayindex of personArray from person id */
             for (var i = 0; i < this.personArray.length; i++) {
                 if (this.personArray[i]['personId'] == personId) {
                     personArrayIndex = i;
                     break;
                 }
             }
+            /**get arrayindex of stockArray from symbol */
             for (var i = 0; i < this.stockArray.length; i++) {
                 if (this.stockArray[i]['stockSymbol'].toLowerCase() == symbol.toLowerCase()) {
                     stockArrayIndex = i;

@@ -63,33 +63,24 @@ var OperationUtility = /** @class */ (function () {
      */
     OperationUtility.prototype.buy = function (symbol, noOfShares, personId) {
         try {
-            if (symbol == null) {
-                throw new Error('stock symbol should not be null');
-            }
-            if (symbol === undefined) {
-                throw new Error('stock symbol should not be undefined');
+            if (symbol == null || symbol == undefined) {
+                throw new Error('stock symbol should not be null or undefined');
             }
             var regex = /^[a-zA-Z0-9]{1,}$/;
             if (!regex.test(symbol)) {
                 throw new Error('stock symbol should not contained special symbol');
             }
+            if (noOfShares == null || noOfShares == undefined) {
+                throw new Error('number of shares should not be null or undefined');
+            }
             if (typeof noOfShares != 'number') {
                 throw new Error('number shares should be number');
             }
-            if (noOfShares == null) {
-                throw new Error('number of shares should not be null');
-            }
-            if (noOfShares === undefined) {
-                throw new Error('number of shares should not be undefined');
+            if (personId == null || personId === undefined) {
+                throw new Error('person id should not be null or undefined');
             }
             if (typeof personId != 'number') {
                 throw new Error('person id should be number');
-            }
-            if (personId == null) {
-                throw new Error('person id should not be null');
-            }
-            if (personId === undefined) {
-                throw new Error('person id should not be undefined');
             }
             var personArrayIndex = -1;
             var stockArrayIndex = -1;
@@ -176,33 +167,24 @@ var OperationUtility = /** @class */ (function () {
      */
     OperationUtility.prototype.sell = function (symbol, noOfShares, personId) {
         try {
-            if (symbol == null) {
-                throw new Error('stock symbol should not be null');
-            }
-            if (symbol === undefined) {
-                throw new Error('stock symbol should not be undefined');
+            if (symbol == null || symbol == undefined) {
+                throw new Error('stock symbol should not be null or undefined');
             }
             var regex = /^[a-zA-Z0-9]{1,}$/;
             if (!regex.test(symbol)) {
                 throw new Error('stock symbol should not contained special symbol');
             }
+            if (noOfShares == null || noOfShares == undefined) {
+                throw new Error('number of shares should not be null or undefined');
+            }
             if (typeof noOfShares != 'number') {
                 throw new Error('number shares should be number');
             }
-            if (noOfShares == null) {
-                throw new Error('number of shares should not be null');
-            }
-            if (noOfShares === undefined) {
-                throw new Error('number of shares should not be undefined');
+            if (personId == null || personId === undefined) {
+                throw new Error('person id should not be null or undefined');
             }
             if (typeof personId != 'number') {
                 throw new Error('person id should be number');
-            }
-            if (personId == null) {
-                throw new Error('person id should not be null');
-            }
-            if (personId === undefined) {
-                throw new Error('person id should not be undefined');
             }
             var personArrayIndex = -1;
             var stockArrayIndex = -1;
@@ -319,6 +301,12 @@ var OperationUtility = /** @class */ (function () {
      */
     OperationUtility.prototype.saveFile = function (filename, jsonarray) {
         try {
+            if (filename == null || filename == undefined) {
+                throw new Error('filename should not be null or undefined');
+            }
+            if (jsonarray == null || jsonarray == undefined) {
+                throw new Error('json array should not be null or undefined');
+            }
             var jsonString = JSON.stringify(jsonarray);
             fs.writeFileSync(filename, jsonString);
             this.readPersonJsonArray();

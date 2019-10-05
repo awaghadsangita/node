@@ -1,8 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Person = /** @class */ (function () {
-    function Person() {
+    function Person(pid, name, bal, no) {
         this.noofshares = new Array();
+        this.personid = pid;
+        this.personname = name;
+        this.balance = bal;
+        this.noofshares = no;
     }
     Object.defineProperty(Person.prototype, "getPersonid", {
         get: function () {

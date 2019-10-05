@@ -50,7 +50,7 @@ var Main = /** @class */ (function () {
                                 }
                                 if (tc1 == 'success') //buy operation successfully performed
                                  {
-                                    console.log("\tSuccessfully bought the " + noofshares + " shares from" + symbol);
+                                    console.log("\tSuccessfully bought the " + noofshares + " shares from " + symbol);
                                 }
                             }
                             break;
@@ -71,7 +71,7 @@ var Main = /** @class */ (function () {
                                 }
                                 if (tc1 == 'success') //sell operation successfully performed
                                  {
-                                    console.log("\tSuccessfully Sold the " + noofshares + " shres to " + symbol);
+                                    console.log("\tSuccessfully Sold the " + noofshares + " shares to " + symbol);
                                 }
                             }
                             break;
@@ -79,7 +79,6 @@ var Main = /** @class */ (function () {
                             stockObj.printReport();
                         }
                     }
-                    choice = 4;
                 } while (choice != 4);
             }
             catch (e) {

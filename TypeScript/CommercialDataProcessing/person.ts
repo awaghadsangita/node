@@ -4,6 +4,13 @@ class Person{
     private balance:number;
     private noofshares=new Array();
 
+    constructor(pid:number,name:string,bal:number,no:any[])
+    {
+        this.personid=pid;
+        this.personname=name;
+        this.balance=bal;
+        this.noofshares=no;
+    }
     get getPersonid():number{
         return this.personid;
     }

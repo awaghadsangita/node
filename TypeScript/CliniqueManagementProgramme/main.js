@@ -45,18 +45,27 @@ var Mainclass = /** @class */ (function () {
                                     console.log('Enter doctor Id');
                                     var doctorid = utility.getNumber();
                                     var arrayindex = obj.getDoctorById(doctorid); //get doctor id from user
+                                    if (arrayindex instanceof Error) {
+                                        throw arrayindex.message;
+                                    }
                                     if (arrayindex[0] != -1) { //if doctor found shows information
-                                        obj.showDoctorDetails(arrayindex);
+                                        var tc = obj.showDoctorDetails(arrayindex);
+                                        if (tc instanceof Error) {
+                                            throw tc.message;
+                                        }
                                     }
                                     var appointmentDate = obj.findAppointmentDate(arrayindex); //get date when doctor available
+                                    if (appointmentDate instanceof Error) {
+                                        throw appointmentDate.message;
+                                    }
                                     console.log('doctor is available on ', appointmentDate);
-                                    console.log('are you want appointment (y/n) '); //asked user whether user want appointment
-                                    var reply = utility.getString();
-                                    if (reply.toUpperCase() == 'Y') {
-                                    }
-                                    else {
-                                        console.log('Thank you');
-                                    }
+                                    // console.log('are you want appointment (y/n) ');//asked user whether user want appointment
+                                    // let reply = utility.getString();
+                                    // if (reply.toUpperCase() == 'N') {
+                                    //     console.log('Thank you');
+                                    // } 
+                                    // else {
+                                    // }
                                 }
                                 break;
                             case 2:
@@ -64,18 +73,26 @@ var Mainclass = /** @class */ (function () {
                                     console.log('Enter doctor name');
                                     var doctorname = utility.getString(); //get doctor name from user
                                     var arrayindex = obj.getDoctorByName(doctorname); //find array index if doctor is found
+                                    if (arrayindex instanceof Error) {
+                                        throw arrayindex.message;
+                                    }
                                     if (arrayindex[0] != -1) {
-                                        obj.showDoctorDetails(arrayindex); //show doctor details
+                                        var tc = obj.showDoctorDetails(arrayindex); //show doctor details
+                                        if (tc instanceof Error) {
+                                            throw tc.message;
+                                        }
                                     }
                                     var appointmentDate = obj.findAppointmentDate(arrayindex); //find when doctor is available
+                                    if (appointmentDate instanceof Error) {
+                                        throw appointmentDate.message;
+                                    }
                                     console.log('doctor is available on ', appointmentDate);
-                                    console.log('are you want appointment (y/n) ');
-                                    var reply = utility.getString();
-                                    if (reply.toUpperCase() == 'Y') {
-                                    }
-                                    else {
-                                        console.log('Thank you');
-                                    }
+                                    // console.log('are you want appointment (y/n) ');
+                                    // let reply = utility.getString();
+                                    // if (reply.toUpperCase() == 'Y') {
+                                    // } else {
+                                    //     console.log('Thank you');
+                                    // }
                                 }
                                 break;
                             case 3:
@@ -83,8 +100,14 @@ var Mainclass = /** @class */ (function () {
                                     console.log('Enter doctor Specialization');
                                     var specialization = utility.getString(); //get specialzation from user
                                     var arrayindex = obj.getDoctorBySpecializtion(specialization); //find array index if doctor is found
+                                    if (arrayindex instanceof Error) {
+                                        throw arrayindex.message;
+                                    }
                                     if (arrayindex[0] != -1) {
-                                        obj.showDoctorDetails(arrayindex); //shows doctor information
+                                        var tc = obj.showDoctorDetails(arrayindex); //shows doctor information
+                                        if (tc instanceof Error) {
+                                            throw tc.message;
+                                        }
                                     }
                                     console.log('are you want appointment (y/n) ');
                                     var reply = utility.getString();
@@ -92,7 +115,13 @@ var Mainclass = /** @class */ (function () {
                                         console.log('Enter doctor Id'); //id from user
                                         var doctorid = utility.getNumber();
                                         var arrayindex_1 = obj.getDoctorById(doctorid); //find array index
+                                        if (arrayindex_1 instanceof Error) {
+                                            throw arrayindex_1.message;
+                                        }
                                         var appointmentDate = obj.findAppointmentDate(arrayindex_1); //find when doctor is avialable
+                                        if (appointmentDate instanceof Error) {
+                                            throw appointmentDate.message;
+                                        }
                                         console.log('doctor is available on ', appointmentDate);
                                     }
                                     else {
@@ -121,8 +150,14 @@ var Mainclass = /** @class */ (function () {
                                         default: console.log('Invalid Shift');
                                     }
                                     var arrayindex = obj.getDoctorByAvailability(avial); //find all doctors working in given shift
+                                    if (arrayindex instanceof Error) {
+                                        throw arrayindex.message;
+                                    }
                                     if (arrayindex[0] != -1) {
-                                        obj.showDoctorDetails(arrayindex);
+                                        var tc = obj.showDoctorDetails(arrayindex);
+                                        if (tc instanceof Error) {
+                                            throw tc.message;
+                                        }
                                     }
                                     console.log('are you want appointment (y/n) ');
                                     var reply = utility.getString();
@@ -130,7 +165,13 @@ var Mainclass = /** @class */ (function () {
                                         console.log('Enter doctor Id'); //get doctor id
                                         var doctorid = utility.getNumber();
                                         var arrayindex_2 = obj.getDoctorById(doctorid); //find array index
+                                        if (arrayindex_2 instanceof Error) {
+                                            throw arrayindex_2.message;
+                                        }
                                         var appointmentDate = obj.findAppointmentDate(arrayindex_2); //find availability
+                                        if (appointmentDate instanceof Error) {
+                                            throw appointmentDate.message;
+                                        }
                                         console.log('doctor is available on ', appointmentDate);
                                     }
                                     else {
@@ -158,8 +199,14 @@ var Mainclass = /** @class */ (function () {
                                     console.log('Enter the Patient id');
                                     var id = utility.getNumber(); //get patient id
                                     var index = obj.getPatientById(id); //find array index
+                                    if (index instanceof Error) {
+                                        throw index.message;
+                                    }
                                     if (index[0] != -1) {
-                                        obj.showPatientDetails(index); //shows patient information if patient found in array list
+                                        var tc = obj.showPatientDetails(index); //shows patient information if patient found in array list
+                                        if (tc instanceof Error) {
+                                            throw tc.message;
+                                        }
                                     }
                                 }
                                 break;
@@ -168,8 +215,14 @@ var Mainclass = /** @class */ (function () {
                                     console.log('Enter the Patient Name :');
                                     var name_1 = utility.getString(); //get patient name from user
                                     var index = obj.getPatientByName(name_1); //find array index
+                                    if (index instanceof Error) {
+                                        throw index.message;
+                                    }
                                     if (index[0] != -1) {
-                                        obj.showPatientDetails(index); //shows patient information if patient found in array list
+                                        var tc = obj.showPatientDetails(index); //shows patient information if patient found in array list
+                                        if (tc instanceof Error) {
+                                            throw tc.message;
+                                        }
                                     }
                                 }
                                 break;
@@ -178,8 +231,14 @@ var Mainclass = /** @class */ (function () {
                                     console.log('Enter the Patient Mobile Number :');
                                     var ph = utility.getNumber(); //get patient mobile number from user
                                     var index = obj.getPatientByMobileNumber(ph); //find array index from mobile number
+                                    if (index instanceof Error) {
+                                        throw index.message;
+                                    }
                                     if (index[0] != -1) {
-                                        obj.showPatientDetails(index); //shows patient information if patient found in array list
+                                        var tc = obj.showPatientDetails(index); //shows patient information if patient found in array list
+                                        if (tc instanceof Error) {
+                                            throw tc.message;
+                                        }
                                     }
                                 }
                                 break;
@@ -192,10 +251,19 @@ var Mainclass = /** @class */ (function () {
                         console.log('Enter doctor name'); //get doctor name from user
                         var doctorname = utility.getString();
                         var arrayindex = obj.getDoctorByName(doctorname); //find array index from doctorname
+                        if (arrayindex instanceof Error) {
+                            throw arrayindex.message;
+                        }
                         if (arrayindex[0] != -1) {
-                            obj.showDoctorDetails(arrayindex); //show doctor details
+                            var tc = obj.showDoctorDetails(arrayindex); //show doctor details
+                            if (tc instanceof Error) {
+                                throw tc.message;
+                            }
                         }
                         var appointmentDate = obj.findAppointmentDate(arrayindex); //find when doctor is available
+                        if (appointmentDate instanceof Error) {
+                            throw appointmentDate.message;
+                        }
                         console.log('doctor is available on ', appointmentDate);
                         console.log('are you sure to schedule appointment(y/n) :');
                         var appointmentReply = utility.getString();
@@ -209,18 +277,28 @@ var Mainclass = /** @class */ (function () {
                                 var age = utility.getNumber();
                                 console.log('Enter the Mobile Number :');
                                 var ph = utility.getNumber();
-                                obj.addPatient(name_2, age, ph); //add it to patient array
+                                var tc = obj.addPatient(name_2, age, ph); //add it to patient array
+                                if (tc instanceof Error) {
+                                    throw tc.message;
+                                }
                             }
                             else {
                                 console.log('Enter patient Id');
                                 var pid = utility.getNumber(); //if not new patient then asked id
-                                obj.scheduleAppointment(arrayindex[0], appointmentDate, pid); //scheduleAppointment
+                                var tc0 = obj.scheduleAppointment(arrayindex[0], appointmentDate, pid); //scheduleAppointment
+                                if (tc0 instanceof Error) {
+                                    throw tc0.message;
+                                }
+                                console.log('You appointment is schedule on ', appointmentDate);
                             }
                         }
                     }
                     break;
                 case 4: {
-                    obj.findPopularDoctor(); //find popular doctor
+                    var tc = obj.findPopularDoctor(); //find popular doctor
+                    if (tc instanceof Error) {
+                        throw tc.message;
+                    }
                     break;
                 }
                 default: console.log('Invalid choice');

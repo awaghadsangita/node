@@ -1,10 +1,25 @@
+/*********************************************************************************************************
+ * @purpose	:contains various linkedlist operation 
+ * 
+ * @author	:sangita awaghad
+ * @version	:1.0
+ * @since	:04-10-2019
+ * 
+ **********************************************************************************************************/
 import { Node } from './node';
 import * as fs from 'fs';
 class Linkedlist {
     private HEAD: any;
+    /**
+     * @description check whether linkedlist empty or not
+     */
     isEmpty(): boolean {
         return this.HEAD == null;
     }
+    /**
+     * @description:insert node at beginning of linkedlist
+     * @param newnode :node to be inserted
+     */
     insertAtFirst(newnode: any) {
         try {
             if (this.isEmpty()) {
@@ -17,6 +32,10 @@ class Linkedlist {
             return e;
         }
     }
+    /**
+     * @description:insert node at end of linkedlist
+     * @param newnode :node to be inserted
+     */
     insertAtEnd(newnode: any) {
         try {
             if (this.isEmpty() == true) {
@@ -33,6 +52,11 @@ class Linkedlist {
             return e;
         }
     }
+    /**
+     * @description:insert node at specific position
+     * @param newnode :node to be inserted
+     * @param pos :position where node is inserted
+     */
     insertInBetween(newnode: any, pos: number) {
         try {
             if (pos < -1 || this.size() < pos) {
@@ -56,6 +80,9 @@ class Linkedlist {
             return e;
         }
     }
+    /**
+     * @description:display all stock in linked list
+     */
     showLinkedlist() {
         try {
             let temp = this.HEAD;
@@ -70,6 +97,9 @@ class Linkedlist {
 
         }
     }
+    /**
+     * @description:give lenth of linkedlist
+     */
     size(): number {
         try {
             let count: number = 0;
@@ -82,6 +112,9 @@ class Linkedlist {
             return e;
         }
     }
+    /**
+     * @description:delete first node of linked list
+     */
     deletefirst() {
         try {
             if (this.isEmpty()) {
@@ -97,6 +130,9 @@ class Linkedlist {
             return e;
         }
     }
+    /**
+     * @description:delete last node of linkedlist
+     */
     deletelast() {
         try {
             if (this.isEmpty()) {
@@ -121,6 +157,10 @@ class Linkedlist {
             return e;
         }
     }
+    /**
+     * @description:delete node at specific positon
+     * @param position :gives position of node to be deleted
+     */
     deleteAt(position: number) {
         try {
             let temp = this.HEAD;
@@ -143,6 +183,10 @@ class Linkedlist {
             return e;
         }
     }
+    /**
+     * @description:search stock symbol in linked list return position
+     * @param symbol :stock symbol to be search
+     */
     serachSymbol(symbol: string): number {
         try {
             let temp = this.HEAD;
@@ -158,6 +202,9 @@ class Linkedlist {
             return e;
         }
     }
+    /**
+     * @description:shows all transaction present in linked list
+     */
     showTransaction()
     {
         try{
@@ -174,7 +221,9 @@ class Linkedlist {
             return e;
         }
     }
-    /**writetoJsonFile */
+    /**
+     * @description:write newly added stock in json file
+     */
     writeToJsonFile(){
         try{
             let stockArray=new Array();

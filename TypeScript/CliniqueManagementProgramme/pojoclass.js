@@ -1,3 +1,4 @@
+"use strict";
 var Doctor = /** @class */ (function () {
     function Doctor() {
         this.doctorid = 0;

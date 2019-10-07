@@ -23,7 +23,7 @@ class Mainclass {
             console.log('2.SEARCH PATIENT');
             console.log('3.TAKE APPOINTMENT');
             console.log('4.FIND POPULAR DOCTOR');
-            console.log('Enter your choice');
+            process.stdout.write('Enter your choice');
             choice = utility.getNumber();//take user choice
             switch (choice) {
                 case 1: {
@@ -32,7 +32,7 @@ class Mainclass {
                     console.log('2.search Doctor by Name ');
                     console.log('3.search Doctor by Specialization');
                     console.log('4.search Doctor by Availability');
-                    console.log('Enter your choice');//take user choice
+                    process.stdout.write('Enter your choice');//take user choice
                     let searchchoice = utility.getNumber();
                     switch (searchchoice) {
                         case 1: {
@@ -184,7 +184,7 @@ class Mainclass {
                     console.log('1.Search Patient by Id');
                     console.log('2.Search Patient by Name');
                     console.log('3.Search Patient by Mobile number');
-                    console.log('Enter your choice :');
+                    process.stdout.write('Enter your choice :');
                     let innerchoice = utility.getNumber();//get user choice
                     switch (innerchoice) {
                         case 1: {
